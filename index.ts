@@ -1,6 +1,13 @@
 import { of } from "rxjs";
 import { map } from "rxjs/operators";
 
-const source = of("World").pipe(map(x => `Hello ${x}!`));
+console.clear();
 
-source.subscribe(console.log);
+var source = ['1','2','3','foo','1','2','4','5','bar','8','13'];
+
+var result = source
+.map(x => parseInt(x))
+.filter(x => !isNaN(x))
+.reduce((x,y) => x + y);
+
+console.log(result);
